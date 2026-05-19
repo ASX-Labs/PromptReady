@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Open this file in a browser, then right-click each canvas and "Save image as" PNG -->
+<html>
+<head><title>Generate PromptReady Icons</title>
+<style>
+  body { background:#111; display:flex; flex-direction:column; align-items:center; gap:24px; padding:40px; font-family:sans-serif; color:#fff; }
+  canvas { border:1px solid #333; border-radius:8px; }
+  p { color:#888; font-size:13px; }
+</style>
+</head>
+<body>
+  <h2>PromptReady Icon Generator</h2>
+  <p>Right-click each canvas → "Save image as" → save as icon16.png, icon48.png, icon128.png</p>
+  <div><p>16×16</p><canvas id="c16" width="16" height="16"></canvas></div>
+  <div><p>48×48</p><canvas id="c48" width="48" height="48"></canvas></div>
+  <div><p>128×128</p><canvas id="c128" width="128" height="128"></canvas></div>
+
+<script>
+function drawIcon(canvas) {
+  const size = canvas.width;
+  const ctx  = canvas.getContext('2d');
+  const cx   = size / 2;
+  const cy   = size / 2;
+
+  // Background gradient
+  const bg = ctx.createLinearGradient(0, 0, size, size);
+  bg.addColorStop(0, '#6366f1');
+  bg.addColorStop(1, '#8b5cf6');
+
+  const r = size * 0.46;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, size * 0.2);
+  ctx.fillStyle = bg;
+  ctx.fill();
+
+  // Star shape
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.fillStyle = '#ffffff';
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineJoin = 'round';
+
+  const outer = size * 0.38;
+  const inner = size * 0.18;
+  const points = 5;
+
+  ctx.beginPath();
+  for (let i = 0; i < points * 2; i++) {
+    const angle = (i * Math.PI) / points - Math.PI / 2;
+    const rad   = i % 2 === 0 ? outer : inner;
+    const x = Math.cos(angle) * rad;
+    const y = Math.sin(angle) * rad;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+}
+
+['c16','c48','c128'].forEach(id => drawIcon(document.getElementById(id)));
+</script>
+</body>
+</html>

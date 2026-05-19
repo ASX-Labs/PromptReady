@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptReady — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+        </svg>
+        PromptReady
+      </div>
+      <ul class="nav-list">
+        <li class="nav-item active" data-tab="general">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          General
+        </li>
+        <li class="nav-item" data-tab="frameworks">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Frameworks
+        </li>
+        <li class="nav-item" data-tab="sites">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          Websites
+        </li>
+        <li class="nav-item" data-tab="history">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+          History
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <!-- General tab -->
+      <section class="tab-panel active" id="tab-general">
+        <h2 class="tab-title">General Settings</h2>
+
+        <div class="card">
+          <div class="card-label">Enhancement Mode</div>
+          <div class="card-desc">Manual mode shows the enhance button; Auto mode enhances automatically as you type.</div>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="mode" value="manual" id="mode-manual">
+              <div class="radio-box">
+                <div class="radio-title">Manual Mode</div>
+                <div class="radio-desc">Click the ✦ Enhance button to enhance your prompt on demand</div>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="mode" value="auto" id="mode-auto">
+              <div class="radio-box">
+                <div class="radio-title">Auto Mode</div>
+                <div class="radio-desc">Automatically rewrites prompts as you type (with a short delay)</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Enhancement Intensity</div>
+          <div class="card-desc">Controls how aggressively your prompt is rewritten.</div>
+          <div class="intensity-grid">
+            <label class="intensity-card">
+              <input type="radio" name="intensity" value="light">
+              <div class="intensity-body">
+                <div class="intensity-name">Light</div>
+                <div class="intensity-desc">Minimal additions. Keeps the original prompt mostly intact with light structure.</div>
+              </div>
+            </label>
+            <label class="intensity-card">
+              <input type="radio" name="intensity" value="balanced">
+              <div class="intensity-body">
+                <div class="intensity-name">Balanced ✦</div>
+                <div class="intensity-desc">Recommended. Adds role, context, and structure without over-engineering.</div>
+              </div>
+            </label>
+            <label class="intensity-card">
+              <input type="radio" name="intensity" value="aggressive">
+              <div class="intensity-body">
+                <div class="intensity-name">Aggressive</div>
+                <div class="intensity-desc">Full rewrite with detailed instructions, constraints, and output specifications.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Keyboard Shortcut</div>
+          <div class="card-desc">Use <kbd>Alt + E</kbd> to toggle the enhancement panel on any supported AI website.</div>
+        </div>
+
+        <button class="save-btn" id="save-general">Save Settings</button>
+      </section>
+
+      <!-- Frameworks tab -->
+      <section class="tab-panel" id="tab-frameworks">
+        <h2 class="tab-title">Prompting Frameworks</h2>
+        <p class="tab-desc">Choose a default framework or let PromptReady automatically select the best one.</p>
+
+        <div class="framework-grid" id="framework-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <button class="save-btn" id="save-frameworks">Save Framework</button>
+      </section>
+
+      <!-- Sites tab -->
+      <section class="tab-panel" id="tab-sites">
+        <h2 class="tab-title">Supported Websites</h2>
+        <p class="tab-desc">Enable or disable PromptReady on specific AI platforms.</p>
+
+        <div class="sites-list" id="sites-list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- History tab -->
+      <section class="tab-panel" id="tab-history">
+        <h2 class="tab-title">Prompt History</h2>
+        <div class="history-toolbar">
+          <span class="history-count" id="history-count">0 prompts</span>
+          <button class="danger-btn" id="clear-history">Clear All</button>
+        </div>
+        <div class="history-list" id="history-list">
+          <div class="empty-state">No prompt history yet. Start enhancing prompts to see them here.</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

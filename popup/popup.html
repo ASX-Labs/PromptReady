@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptReady</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="popup-logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+        </svg>
+        PromptReady
+      </div>
+      <span class="popup-version">v1.0</span>
+    </div>
+
+    <!-- Mode toggle -->
+    <div class="section">
+      <div class="section-label">Enhancement Mode</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="mode-manual" data-mode="manual">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 1 1 3.536 3.536L6.5 21.036H3v-3.5L16.732 3.732z"/>
+          </svg>
+          Manual
+        </button>
+        <button class="mode-btn" id="mode-auto" data-mode="auto">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Auto
+        </button>
+      </div>
+    </div>
+
+    <!-- Intensity -->
+    <div class="section">
+      <div class="section-label">Enhancement Intensity</div>
+      <div class="intensity-row">
+        <button class="intensity-btn" data-intensity="light">Light</button>
+        <button class="intensity-btn active" data-intensity="balanced">Balanced</button>
+        <button class="intensity-btn" data-intensity="aggressive">Aggressive</button>
+      </div>
+    </div>
+
+    <!-- Current site status -->
+    <div class="section">
+      <div class="section-label">This Website</div>
+      <div class="site-row">
+        <span class="site-hostname" id="site-hostname">—</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="site-toggle" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Quick stats -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-enhanced">0</div>
+        <div class="stat-label">Enhanced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-score">—</div>
+        <div class="stat-label">Avg Score</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-saved">0</div>
+        <div class="stat-label">Saved</div>
+      </div>
+    </div>
+
+    <!-- Footer links -->
+    <div class="popup-footer">
+      <button class="footer-link" id="open-history">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+        History
+      </button>
+      <button class="footer-link" id="open-options">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        Settings
+      </button>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
