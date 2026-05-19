@@ -124,7 +124,7 @@ PromptReady/
 
 1. Clone this repo:
    ```bash
-   git clone https://github.com/yourusername/PromptReady.git
+   git clone https://github.com/ASX-Labs/PromptReady.git
    ```
 
 2. Open Chrome and go to:
@@ -198,6 +198,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 Made with ✦ for better AI conversations
 
-**[Install from Chrome Web Store](https://chrome.google.com/webstore) · [Report a Bug](https://github.com/yourusername/PromptReady/issues) · [Request a Feature](https://github.com/yourusername/PromptReady/issues)**
+**[Install from Chrome Web Store](https://chrome.google.com/webstore) · [Report a Bug](https://github.com/ASX-Labs/PromptReady/issues) · [Request a Feature](https://github.com/ASX-Labs/PromptReady/issues)**
 
 </div>
