@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PromptReady</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #111114;
+      --surface-2: #18181d;
+      --border: #222228;
+      --accent: #c8b8ff;
+      --accent-dim: #7c6aad;
+      --text: #e8e6f0;
+      --text-muted: #6b6880;
+      --text-dim: #9d99b0;
+      --green: #6effc8;
+      --green-dim: #1a3d30;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glow blob */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(124, 106, 173, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 72px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .logo-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .meta {
+      margin-top: 20px;
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* TL;DR card */
+    .tldr {
+      background: var(--green-dim);
+      border: 1px solid rgba(110, 255, 200, 0.2);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .tldr-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .tldr p {
+      color: rgba(110, 255, 200, 0.85);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:nth-child(1) { animation-delay: 0.15s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.25s; }
+    section:nth-child(4) { animation-delay: 0.3s; }
+    section:nth-child(5) { animation-delay: 0.35s; }
+
+    .section-num {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dim);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* Checklist */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+
+    .checklist li::before {
+      content: '✓';
+      color: var(--green);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .contact-box strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 4px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 600;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 18px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent-dim);
+      background: rgba(124, 106, 173, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    footer a {
+      color: var(--accent-dim);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 48px 20px 80px; }
+      .contact-box { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo-row">
+        <div class="logo-mark">✦</div>
+        <span class="logo-name">PromptReady</span>
+      </div>
+      <h1>Privacy <span>Policy</span></h1>
+      <p class="meta">Last updated: May 2026 &nbsp;·&nbsp; Version 1.0.0</p>
+    </header>
+
+    <div class="tldr">
+      <div class="tldr-label">TL;DR — Plain English Summary</div>
+      <p>PromptReady works entirely inside your browser. It does not collect your data, send anything to a server, or require an account. Everything stays on your device.</p>
+    </div>
+
+    <section>
+      <div class="section-num">01 — Overview</div>
+      <h2>What PromptReady Does</h2>
+      <p>PromptReady is a Chrome extension that enhances prompts you type into AI platforms (ChatGPT, Claude, Gemini, Perplexity, Grok, DeepSeek) using built-in prompting frameworks. All processing is performed locally in your browser using JavaScript. No data is ever transmitted to any external server.</p>
+    </section>
+
+    <section>
+      <div class="section-num">02 — Data Collection</div>
+      <h2>We Collect Nothing</h2>
+      <p>PromptReady does not collect, transmit, share, or sell any user data. Specifically:</p>
+      <ul class="checklist">
+        <li>No personal information is collected (name, email, IP address, location)</li>
+        <li>No prompt content is read, stored, or sent anywhere outside your device</li>
+        <li>No browsing history, activity tracking, or keystroke logging</li>
+        <li>No analytics, crash reports, or telemetry of any kind</li>
+        <li>No third-party scripts, SDKs, or tracking pixels are included</li>
+        <li>No account or login is required</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-num">03 — Local Storage</div>
+      <h2>What's Stored on Your Device</h2>
+      <p>The extension uses Chrome's <code>storage.local</code> API to save your preferences and prompt history on your own device only. This includes:</p>
+      <ul class="checklist">
+        <li>Your selected framework and intensity level</li>
+        <li>Mode preference (manual or auto)</li>
+        <li>Per-site enable/disable toggles</li>
+        <li>Your prompt enhancement history (for the in-extension history panel)</li>
+      </ul>
+      <p style="margin-top: 14px;">This data never leaves your browser. You can clear it at any time by removing the extension or clearing Chrome extension storage.</p>
+    </section>
+
+    <section>
+      <div class="section-num">04 — Permissions</div>
+      <h2>Why We Request Certain Permissions</h2>
+      <ul class="checklist">
+        <li><strong style="color: var(--text);">storage</strong> — to save your preferences locally on your device</li>
+        <li><strong style="color: var(--text);">activeTab</strong> — to detect which supported AI platform is active so the enhance button can appear</li>
+        <li><strong style="color: var(--text);">scripting</strong> — to inject the enhancement UI into the AI platform's input field</li>
+        <li><strong style="color: var(--text);">host permissions</strong> — limited to the six supported AI platforms only; required to interact with the prompt input element on each site</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-num">05 — Third Parties</div>
+      <h2>No Third-Party Data Sharing</h2>
+      <p>PromptReady does not share, sell, transfer, or disclose any user data to third parties under any circumstances. The extension contains no third-party code, advertising networks, or external service integrations.</p>
+    </section>
+
+    <section>
+      <div class="section-num">06 — Children</div>
+      <h2>Children's Privacy</h2>
+      <p>PromptReady does not knowingly collect any information from children under the age of 13. The extension collects no personal information from any user regardless of age.</p>
+    </section>
+
+    <section>
+      <div class="section-num">07 — Changes</div>
+      <h2>Changes to This Policy</h2>
+      <p>If this privacy policy changes in any material way, the updated policy will be posted at this URL with a revised "Last updated" date. Continued use of the extension after any change constitutes acceptance of the revised policy.</p>
+    </section>
+
+    <hr class="divider" />
+
+    <div class="contact-box">
+      <div>
+        <strong>Questions or concerns?</strong>
+        <p>Contact the developer via the GitHub repository.</p>
+      </div>
+      <a href="https://github.com/ASX-Labs/PromptReady/issues" class="contact-link" target="_blank" rel="noopener">
+        ↗ Open an Issue on GitHub
+      </a>
+    </div>
+
+    <footer>
+      <p>© 2026 ASX-Labs · PromptReady v1.0.0</p>
+      <p><a href="https://github.com/ASX-Labs/PromptReady">github.com/ASX-Labs/PromptReady</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
